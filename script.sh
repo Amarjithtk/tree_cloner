@@ -38,9 +38,18 @@ read build
 printf "\n You want to build directly ? : "
 read S
 
-if B=y
+if s=y
 then
    . build/envsetup.sh && lunch $make_$Device-userdebug && $build -j12
+fi
+
+printf "\n Was everything perfect and ready to upload to sourceforge ? : "
+read p
+
+if p=yes
+then
+    . SF_uploader/sourceforge.sh
+
 fi
 
 
