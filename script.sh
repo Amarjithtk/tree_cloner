@@ -29,4 +29,21 @@ then
    git clone https://github.com/Xiaomi-Redmi3S-pie/display-caf.git -b 9.0 hardware/qcom/display-caf/msm8996 && git clone https://github.com/Xiaomi-Redmi3S-pie/media-caf.git -b 9.0 hardware/qcom/media-caf/msm8996 && git clone https://github.com/Xiaomi-Redmi3S-pie/audio-caf -b 9.0 hardware/qcom/audio-caf/msm8996.
 fi
 
+printf "\n your device name ? : "
+read Device
+printf "\n your rom name ? : "
+read make
+printf "\n what is your rom build command ? : "
+read build
+printf "\n You want to build directly ? : "
+read S
+
+if B=y
+then
+   . build/envsetup.sh && lunch $make_$Device-userdebug && $build -j12
+fi
+
+
+
+
 
