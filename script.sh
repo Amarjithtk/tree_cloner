@@ -28,8 +28,32 @@ if B=y
 then
    git clone https://github.com/Xiaomi-Redmi3S-pie/display-caf.git -b 9.0 hardware/qcom/display-caf/msm8996 && git clone https://github.com/Xiaomi-Redmi3S-pie/media-caf.git -b 9.0 hardware/qcom/media-caf/msm8996 && git clone https://github.com/Xiaomi-Redmi3S-pie/audio-caf -b 9.0 hardware/qcom/audio-caf/msm8996.
 fi
+printf "\n You want to build directly ? : "
+read S
 
-printf "\n your device name ? : "
+if S=no
+then
+   printf "\n What do you want to edit? : "
+   read A
+   
+fi
+
+if A=device
+then
+   cd device/xiaomi/land
+fi 
+
+if A=kernel
+then
+   cd kernel/xiaomi/msm8937
+fi 
+
+if A=vendor
+then
+   cd vendor/xiaomi
+fi   
+   
+printf "\n your device codename ? : "
 read Device
 printf "\n your rom name ? : "
 read make
@@ -38,7 +62,7 @@ read build
 printf "\n You want to build directly ? : "
 read S
 
-if s=y
+if S=y
 then
    . build/envsetup.sh && lunch $make_$Device-userdebug && $build -j12
 fi
