@@ -13,9 +13,9 @@ printf "\n Enter Your Kernel Tree link : "
 read KT
 printf "\n Enter Your Vendor Tree link : "
 read KT
-git clone DT -b pie device/xiaomi/land
-git clone KT -b pie kernel/xiaomi/msm8937
-git clone VT -b pie vendor/xiaomi
+git clone $DT -b pie device/xiaomi/land
+git clone $KT -b pie kernel/xiaomi/msm8937
+git clone $VT -b pie vendor/xiaomi
 
 printf "\n You want to clone hals or not : "
 read B
